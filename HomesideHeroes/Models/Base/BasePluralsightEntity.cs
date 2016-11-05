@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Net;
-using FileHelpers;
+﻿using System.Configuration;
 
 namespace HomesideHeroes.Models.Base
 {

@@ -178,10 +178,13 @@
     <Compile Include="Models\PluralsightCourseUsage.cs" />
     <Compile Include="Models\PluralsightCourseCompletion.cs" />
     <Compile Include="Models\PluralsightUsers.cs" />
+    <Compile Include="Models\Utils\DateTimeOfMonthExtensions.cs" />
     <Compile Include="Models\Utils\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Viewmodels\AutoMapper\AutoMapperConfig.cs" />
+    <Compile Include="Viewmodels\AutoMapper\Profiles\PluralsightCourseUsageProfile.cs" />
     <Compile Include="Viewmodels\AutoMapper\Profiles\PluralsightUsersProfile.cs" />
+    <Compile Include="Viewmodels\CourseUsageOverMonth.cs" />
     <Compile Include="Viewmodels\PluralsightUsersDto.cs" />
   </ItemGroup>
   <ItemGroup>

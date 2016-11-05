@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using HomesideHeroes.Controllers.Base;
 using HomesideHeroes.Models;
+using HomesideHeroes.Models.Utils;
 using HomesideHeroes.Viewmodels;
 
 namespace HomesideHeroes.Controllers
@@ -15,13 +17,17 @@ namespace HomesideHeroes.Controllers
     public class PluralsightController : BaseApiController
     {
         // GET api/values
-        public ICollection<PluralsightUsersDto> Get()
+        public CourseUsageOverMonth Get()
         {
             var users = new PluralsightUsers().GetAllRemote();
-            var courseUsage = new PluralsightCourseUsage().GetAllRemote();
+            var courseUsage = new PluralsightCourseUsage().GetAllBetweenDates(DateTime.Today.FirstDayOfMonth(), DateTime.Today.LastDayOfMonth());
             var courseCompletion = new PluralsightCourseCompletion().GetAllRemote();
 
-            var vm = Mapper.Map<List<PluralsightUsersDto>>(users.ToList());
+            var vm = Mapper.Map<CourseUsageOverMonth>(courseUsage.ToList());
+
+            // Data points: (day in month #, Total # of hours for month so far at EOD)
+            // y-axis; number of hours
+            // x-axis; number day in month
 
             return vm;
         }

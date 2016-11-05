@@ -19,6 +19,7 @@ namespace HomesideHeroes.Viewmodels.AutoMapper
             {
                 MapperConfiguration = new MapperConfiguration(cfg =>
                 {
+                    cfg.AddProfile(new PluralsightCourseUsageProfile());
                     cfg.AddProfile(new PluralsightUsersProfile());
                 });
             }
