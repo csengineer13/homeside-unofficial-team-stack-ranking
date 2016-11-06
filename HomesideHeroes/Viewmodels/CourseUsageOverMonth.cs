@@ -7,8 +7,8 @@ namespace HomesideHeroes.Viewmodels
     {
         public CourseUsageOverMonth()
         {
-            Labels = new List<string>();
-            DataSets = new List<DataSet>();
+            labels = new List<string>();
+            datasets = new List<DataSet>();
         }
 
         private DateTime TargetMonth { get; set; }
@@ -16,42 +16,43 @@ namespace HomesideHeroes.Viewmodels
 
         // Chart.JS line chart
         // Our x-axis
-        public List<string> Labels { get; set; }
-        public List<DataSet> DataSets { get; set; }
+        public List<string> labels { get; set; }
+        public List<DataSet> datasets { get; set; }
     }
 
     public class DataSet
     {
         public DataSet()
         {
-            BorderCapStyle = "butt";
-            BorderJoinStyle = "miter";
-            PointBorderWidth = 1;
-            PointHoverRadius = 5;
-            PointHoverBorderWidth = 2;
-            PointRadius = 1;
-            PointHitRadius = 10;
+            //borderCapStyle = "butt";
+            //borderJoinStyle = "miter";
+            //pointBorderWidth = 1;
+            //pointHoverRadius = 5;
+            //pointHoverBorderWidth = 2;
+            //pointRadius = 1;
+            //pointHitRadius = 10;
         }
 
-        public string Label { get; set; }
-        public bool Fill { get; set; }
-        public double LineTension { get; set; } // Curve of line
-        public string BackgroundColor { get; set; }
-        public string BorderColor { get; set; }
-        public string BorderCapStyle { get; set; }
-        public int[] BorderDash { get; set; } // Length and spacing of dashes
-        public double BorderDashOffset { get; set; } // Offset for line dashes
-        public string BorderJoinStyle { get; set; }
-        public string PointBorderColor { get; set; }
-        public string PointBAckgroundColor { get; set; }
-        public int PointBorderWidth { get; set; }
-        public int PointHoverRadius { get; set; }
-        public string PointHoverBackgroundColor { get; set; }
-        public string PointHoverBorderColor { get; set; }
-        public int PointHoverBorderWidth { get; set; }
-        public int PointRadius { get; set; }
-        public int PointHitRadius { get; set; }
-        public List<int> Data { get; set; } // Our y-axis ;)
-        public bool SpanGaps { get; set; }
+        public string label { get; set; }
+        //public bool fill { get; set; }
+
+        //public double lineTension { get; set; } // Curve of line
+        public string backgroundColor { get; set; }
+        //public string borderColor { get; set; }
+        //public string borderCapStyle { get; set; }
+        //public int[] borderDash { get; set; } // Length and spacing of dashes
+        //public double borderDashOffset { get; set; } // Offset for line dashes
+        //public string borderJoinStyle { get; set; }
+        //public string pointBorderColor { get; set; }
+        //public string pointBAckgroundColor { get; set; }
+        //public int pointBorderWidth { get; set; }
+        //public int pointHoverRadius { get; set; }
+        //public string pointHoverBackgroundColor { get; set; }
+        //public string pointHoverBorderColor { get; set; }
+        //public int pointHoverBorderWidth { get; set; }
+        //public int pointRadius { get; set; }
+        //public int pointHitRadius { get; set; }
+        public List<int> data { get; set; } // Our y-axis ;)
+        //public bool spanGaps { get; set; }
     }
 }

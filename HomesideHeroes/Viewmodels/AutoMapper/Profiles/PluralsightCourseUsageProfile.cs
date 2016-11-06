@@ -12,8 +12,8 @@ namespace HomesideHeroes.Viewmodels.AutoMapper.Profiles
         public PluralsightCourseUsageProfile()
         {
             CreateMap<List<PluralsightCourseUsage>, CourseUsageOverMonth>()
-                .AfterMap((src, dest) => dest.Labels = ResolveLabels())
-                .AfterMap((src, dest) => dest.DataSets.AddRange(ResolveDataSets(src, dest.Labels)))
+                .AfterMap((src, dest) => dest.labels = ResolveLabels())
+                .AfterMap((src, dest) => dest.datasets.AddRange(ResolveDataSets(src, dest.labels)))
                 ;
 
 
@@ -32,13 +32,20 @@ namespace HomesideHeroes.Viewmodels.AutoMapper.Profiles
                             .ToLookup(x => x.UserId);
 
             var response = new List<DataSet>();
+            var colorIndex = 0;
+            var bgColors = new List<string>
+            {
+                "rgba(153,255,51,0.3)",
+                "rgba(255,153,0,0.3)",
+                "rgba(0,0,0,0.3)"
+            };
             foreach (KeyValuePair<string, List<PluralsightCourseUsage>> aUsersCourseUsage in groupedCourseUsage)
             {
                 // Style Options
                 var newDataSet = new DataSet()
                 {
-                    Label = aUsersCourseUsage.Value.First().FirstName,
-                    BorderColor = "#000000"
+                    label = aUsersCourseUsage.Value.First().FirstName,
+                    backgroundColor = bgColors[colorIndex]
                 };
 
                 // We have.. 
@@ -50,15 +57,16 @@ namespace HomesideHeroes.Viewmodels.AutoMapper.Profiles
                     {
                         if (int.Parse(label) == int.Parse(usage.ViewDate.Substring(8)))
                         {
-                            runningUsageTotal += int.Parse(usage.UsageInSeconds);
+                            runningUsageTotal += int.Parse(usage.UsageInSeconds) / 60;
                         }
                     }
 
                     dataPoints.Add(runningUsageTotal);
                 }
 
-                newDataSet.Data = dataPoints;
+                newDataSet.data = dataPoints;
                 response.Add(newDataSet);
+                colorIndex++;
             }
 
             return response;
