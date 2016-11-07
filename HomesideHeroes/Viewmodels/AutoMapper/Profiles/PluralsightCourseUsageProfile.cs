@@ -35,9 +35,11 @@ namespace HomesideHeroes.Viewmodels.AutoMapper.Profiles
             var colorIndex = 0;
             var bgColors = new List<string>
             {
-                "rgba(153,255,51,0.3)",
-                "rgba(255,153,0,0.3)",
-                "rgba(0,0,0,0.3)"
+                "rgba(204,0,0,1)",
+                "rgba(255,136,0,1)",
+                "rgba(153,51,204,1)",
+                "rgba(119,179,0,1)",
+                "rgba(42,159,214,1)"
             };
             foreach (KeyValuePair<string, List<PluralsightCourseUsage>> aUsersCourseUsage in groupedCourseUsage)
             {
