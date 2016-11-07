@@ -99,7 +99,8 @@ namespace HomesideHeroes.Models.Base
             this.SetFilterEndDate(endDate);
 
             var engine = new FileHelperEngine<TPluralsightEntity>();
-            var listPluralsightEntities = engine.ReadString(GetCsv(FullApiUrl()));
+            var data = GetCsv(FullApiUrl());
+            var listPluralsightEntities = engine.ReadString(data);
 
             return listPluralsightEntities;
         }

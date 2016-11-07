@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using HomesideHeroes.Controllers.Base;
@@ -26,12 +27,18 @@ namespace HomesideHeroes.Controllers
             return vm;
         }
 
-        public CourseCompletionByYear Get(int year = 0)
+        [HttpGet]
+        [Route("all/course-completion/recently-completed")]
+        public IEnumerable<CourseCompletionRecentlyCompleted> GetRecentlyCompletedCourses()
         {
-            if(year == 0) { year = DateTime.Today.Year; }
 
             var courseCompletion = new PluralsightCourseCompletion().GetAllBetweenDates(DateTime.Today.FirstDayOfYear(), DateTime.Today.LastDayOfYear());
-            return "value";
+            var result = Mapper.Map<List<CourseCompletionRecentlyCompleted>>(courseCompletion.ToList())
+                        .OrderBy(cc => DateTime.Parse(cc.EndDate))
+                        .Take(5).ToList();
+
+
+            return result;
         }
 
         // POST api/values
