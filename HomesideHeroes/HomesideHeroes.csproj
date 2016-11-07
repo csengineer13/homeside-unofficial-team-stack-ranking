@@ -178,6 +178,7 @@
     <Compile Include="Models\PluralsightCourseUsage.cs" />
     <Compile Include="Models\PluralsightCourseCompletion.cs" />
     <Compile Include="Models\PluralsightUsers.cs" />
+    <Compile Include="Models\Utils\DateTimeOfYearExtensions.cs" />
     <Compile Include="Models\Utils\DateTimeOfMonthExtensions.cs" />
     <Compile Include="Models\Utils\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

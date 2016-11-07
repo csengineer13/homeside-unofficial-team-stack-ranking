@@ -7,7 +7,7 @@ $(function() {
     app.refreshChart = function () {
         $.ajax({
             method: "GET",
-            url: "/api/pluralsight",
+            url: "/api/pluralsight/individual/course-usage/current-month",
             //data: {},
             dataType: "json" // result format
         })

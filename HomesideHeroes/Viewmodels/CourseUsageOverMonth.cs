@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace HomesideHeroes.Viewmodels
 {
-    public class CourseUsageOverMonth
+    public class CourseUsageByMonth
     {
-        public CourseUsageOverMonth()
+        public CourseUsageByMonth()
         {
             labels = new List<string>();
             datasets = new List<DataSet>();

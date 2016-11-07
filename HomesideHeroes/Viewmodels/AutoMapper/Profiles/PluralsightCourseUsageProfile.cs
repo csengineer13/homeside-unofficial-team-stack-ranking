@@ -11,7 +11,7 @@ namespace HomesideHeroes.Viewmodels.AutoMapper.Profiles
     {
         public PluralsightCourseUsageProfile()
         {
-            CreateMap<List<PluralsightCourseUsage>, CourseUsageOverMonth>()
+            CreateMap<List<PluralsightCourseUsage>, CourseUsageByMonth>()
                 .AfterMap((src, dest) => dest.labels = ResolveLabels())
                 .AfterMap((src, dest) => dest.datasets.AddRange(ResolveDataSets(src, dest.labels)))
                 ;

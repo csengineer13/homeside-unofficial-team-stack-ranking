@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using HomesideHeroes.Controllers.Base;
@@ -14,27 +13,24 @@ namespace HomesideHeroes.Controllers
     /// - https://app.pluralsight.com/plans/api/reports/docs
     /// - https://www.pluralsight.com/content/dam/pluralsight/pdfs/integration/2107_OneSheet_PluralsightLMSIntegration.pdf
     /// </summary>
+    [RoutePrefix("api/pluralsight")]
     public class PluralsightController : BaseApiController
     {
-        // GET api/values
-        public CourseUsageOverMonth Get()
+        [HttpGet]
+        [Route("individual/course-usage/current-month")]
+        public CourseUsageByMonth Get()
         {
-            var users = new PluralsightUsers().GetAllRemote();
             var courseUsage = new PluralsightCourseUsage().GetAllBetweenDates(DateTime.Today.FirstDayOfMonth(), DateTime.Today.LastDayOfMonth());
-            var courseCompletion = new PluralsightCourseCompletion().GetAllRemote();
-
-            var vm = Mapper.Map<CourseUsageOverMonth>(courseUsage.ToList());
-
-            // Data points: (day in month #, Total # of hours for month so far at EOD)
-            // y-axis; number of hours
-            // x-axis; number day in month
+            var vm = Mapper.Map<CourseUsageByMonth>(courseUsage.ToList());
 
             return vm;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        public CourseCompletionByYear Get(int year = 0)
         {
+            if(year == 0) { year = DateTime.Today.Year; }
+
+            var courseCompletion = new PluralsightCourseCompletion().GetAllBetweenDates(DateTime.Today.FirstDayOfYear(), DateTime.Today.LastDayOfYear());
             return "value";
         }
 
